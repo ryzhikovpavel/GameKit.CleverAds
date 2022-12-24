@@ -1,0 +1,17 @@
+{
+    "name": "GameKit.CleverAds",
+    "rootNamespace": "",
+    "references": [
+        "GameKit.Core",
+        "CleverAdsSolutions"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
