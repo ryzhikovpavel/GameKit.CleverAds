@@ -33,6 +33,13 @@ namespace GameKit.CleverAds
 
         internal override void Load()
         {
+            if (_view.isReady)
+            {
+                State = AdUnitState.Loaded;
+                return;
+            }
+
+            State = AdUnitState.Loading;
             _view.Load();
         }
     }
