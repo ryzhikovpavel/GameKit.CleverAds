@@ -50,6 +50,7 @@ namespace GameKit.CleverAds
             }
 
             State = AdUnitState.Loading;
+            if (Logger.IsDebugAllowed) Logger.Debug($"{Name} is loading");
             manager.LoadAd(Type);
         }
 
@@ -62,6 +63,7 @@ namespace GameKit.CleverAds
         
         protected virtual void OnAdLoaded()
         {
+            if (Logger.IsDebugAllowed) Logger.Debug($"{Name} is loaded");
             if (State is (AdUnitState.Loading or AdUnitState.Error))
             {
                 State = AdUnitState.Loaded;

@@ -40,6 +40,7 @@ namespace GameKit.CleverAds
             }
 
             State = AdUnitState.Loading;
+            if (Logger.IsDebugAllowed) Logger.Debug($"{Name} is loading");
             _view.Load();
         }
     }
