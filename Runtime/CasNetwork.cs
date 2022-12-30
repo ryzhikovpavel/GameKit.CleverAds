@@ -10,7 +10,7 @@ namespace GameKit.CleverAds
 {
     public class CasNetwork: IAdsNetwork
     {
-        private static ILogger Log => Logger<CasNetwork>.Instance;
+        public static ILogger Log => Logger<CasNetwork>.Instance;
         private readonly Dictionary<Type, IAdUnit[]> _units = new Dictionary<Type, IAdUnit[]>();
         private IMediationManager _manager;
 
@@ -18,12 +18,13 @@ namespace GameKit.CleverAds
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         private static void Registration()
         {
-            Log.SetAllowed(LogType.All);
+            if (Log.IsDebugAllowed) Log.Debug("Registration");
             Service<AdsMediator>.Instance.RegisterNetwork(new CasNetwork());
         }
         
         public TaskRoutine Initialize(bool trackingConsent, bool intrusiveAdUnits)
         {
+            if (Log.IsDebugAllowed) Log.Debug("Initialize");
             // -- Privacy Laws (Optional):
             MobileAds.settings.userConsent = trackingConsent ? ConsentStatus.Accepted : ConsentStatus.Denied;
             MobileAds.settings.userCCPAStatus = trackingConsent ? CCPAStatus.OptInSale : CCPAStatus.OptOutSale;
