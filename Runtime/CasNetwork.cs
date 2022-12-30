@@ -48,6 +48,14 @@ namespace GameKit.CleverAds
                 _units[typeof(ITopSmartBannerAdUnit)] = new IAdUnit[] { new CasSmartBannerAdUnit(_manager, AdPosition.TopCenter) };
                 _units[typeof(IBottomSmartBannerAdUnit)] = new IAdUnit[] { new CasSmartBannerAdUnit(_manager, AdPosition.BottomCenter) };
             }
+
+            foreach (var units in _units.Values)
+            {
+                foreach (IAdUnit adUnit in units)
+                {
+                    ((CasAdUnit)adUnit).Load();
+                }
+            }
             
             return TaskRoutine.FromCompleted();
         }

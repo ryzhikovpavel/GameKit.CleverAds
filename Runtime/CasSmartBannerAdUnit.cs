@@ -31,7 +31,7 @@ namespace GameKit.CleverAds
             OnAdClosed();
         }
 
-        protected override void Load()
+        internal override void Load()
         {
             _view.Load();
         }

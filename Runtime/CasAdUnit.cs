@@ -25,8 +25,6 @@ namespace GameKit.CleverAds
             
             this.manager = manager;
             Type = type;
-
-            Load();
         }
 
         public virtual void Show()
@@ -43,7 +41,7 @@ namespace GameKit.CleverAds
             Load();
         }
 
-        protected virtual void Load()
+        internal virtual void Load()
         {
             if (manager.IsReadyAd(Type))
             {
