@@ -58,6 +58,9 @@ namespace GameKit.CleverAds
                 }
             }
             
+            if (Debug.isDebugBuild)
+                MobileAds.ValidateIntegration();
+            
             return TaskRoutine.FromCompleted();
         }
 
